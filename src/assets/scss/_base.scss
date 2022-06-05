@@ -1,0 +1,36 @@
+body {
+    background: linear-gradient(90deg, #83A4BD, #A5A2B3, #BA929B, #BD8689, #C46F6A, #C65857, #BF4145, #9C2E37, #7A262E, #421F23, #2D1C22);
+
+}
+* {
+    box-sizing: border-box;
+    font-family: "Gilroy";
+}
+.container {
+    max-width: 1190px;
+    padding: 0 15px;
+    margin: 0 auto;
+    position: relative;
+}
+h1,h2,h3,h4,h5 {
+    margin-block-start: 0;
+    margin-block-end: 0;
+
+}
+p {
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
+ul {
+    margin-block-start: 0;
+    margin-block-end: 0;
+    padding-inline-start: 0;
+    list-style: none;
+}
+a {
+    text-decoration: none;
+}
+.lock {
+    overflow: hidden;
+}
+

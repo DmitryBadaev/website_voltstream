@@ -1,11 +1,14 @@
-@import 'variables/mixins';
+@import '../css/fonts.css';
+@import '../css/normalize.css';
+
 @import 'variables/variables';
+@import 'variables/mixins';
 @import 'base';
 
 @import 'blocks/header';
-@import 'blocks/specialization';
-@import 'blocks/reviews';
-
 @import 'blocks/footer';
+
+
+
 
 

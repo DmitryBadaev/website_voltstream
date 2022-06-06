@@ -1,5 +1,6 @@
 body {
     background: linear-gradient(90deg, #83A4BD, #A5A2B3, #BA929B, #BD8689, #C46F6A, #C65857, #BF4145, #9C2E37, #7A262E, #421F23, #2D1C22);
+    
 
 }
 * {
@@ -10,7 +11,6 @@ body {
     max-width: 1190px;
     padding: 0 15px;
     margin: 0 auto;
-    position: relative;
 }
 h1,h2,h3,h4,h5 {
     margin-block-start: 0;
@@ -34,3 +34,49 @@ a {
     overflow: hidden;
 }
 
+
+.title {
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 130%;
+    color: $title-color;
+    span {
+        font-weight: 700;
+    }
+
+    &__big {
+        font-weight: 400;
+        font-size: 36px;
+        line-height: 46.8px;
+    }
+}
+@media (max-width: 800px) {
+    .title {
+        span {
+            font-weight: 700;
+
+        }
+    
+        &__big {
+            font-weight: 400;
+            font-size: 24px;
+            line-height: 31px;
+        }
+    }
+
+}
+@media (max-width: 600px) {
+    .title {
+        span {
+            font-size: 20px;
+            line-height: 25px;
+
+        }
+    
+        &__big {
+            text-align: center;
+            font-size: 20px;
+            line-height: 26px;
+        }
+    }
+}

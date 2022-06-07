@@ -1,0 +1,121 @@
+.footer {
+    position: relative;
+    min-height: 600px;
+}
+.footer-block {
+    padding: 60px;
+    background-color: #fff;
+    width: 510px;
+    position: absolute;
+    top: 80px;
+    left: 7%;
+
+		&__title {
+            font-weight: 600;
+            font-size: 32px;
+            line-height: 42px;
+            color: #333333;
+
+		}
+
+		&__links {
+            margin-top: 25px;
+            a {
+                display: block;
+                font-weight: 400;
+                font-size: 20px;
+                line-height: 32px;
+                color: #4F4F4F;
+                transition: 0.2s all;
+                &:hover {
+                    color: $main-color;
+                }
+
+            }
+		}
+        address {
+            font-style: normal;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 26px;
+            color: #4F4F4F;
+        }
+
+		&__social {
+            margin-top: 30px;
+            display: flex;
+            a {
+                display: block;
+                width: 35px;
+                height: 35px;
+                margin-right: 30px;
+                transition: 0.2s all;
+                &:hover {
+                    transform: scale(1.2);
+
+                }
+                &:last-child {
+                    margin-right: 0;
+                }
+                img {
+                    width: 100%;
+                }
+            }
+		}
+}
+@media (max-width: 900px) {
+    .footer {
+    }
+    .footer-block {
+        padding: 32px;
+        width: 380px;
+    }
+    .footer-block__title {
+        font-size: 28px;
+        line-height: 26px;
+    }
+    .footer-block__links {
+        a {
+            font-size: 17px;
+            line-height: 25px;
+        }
+    }
+}
+@media (max-width: 760px) {
+    .footer-block {
+        padding: 32px;
+        width: 380px;
+    }
+    .footer-block__title {
+        font-size: 28px;
+        line-height: 26px;
+    }
+    .footer-block__links {
+        a {
+            font-size: 17px;
+            line-height: 25px;
+        }
+    }
+}
+@media (max-width: 650px) {
+    .footer-block {
+        position: static;
+        width: 100%;
+    }
+    .footer-block__title {
+        text-align: center;
+    }
+    .footer-block__links {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    address {
+        text-align: center;
+    }
+    .footer-block__social {
+        justify-content: center;
+    }
+
+}

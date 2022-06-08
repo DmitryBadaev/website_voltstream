@@ -109,19 +109,6 @@ function calcScroll() {
 
 /***/ }),
 
-/***/ "./src/js/modules/map.js":
-/*!*******************************!*\
-  !*** ./src/js/modules/map.js ***!
-  \*******************************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-function map() {}
-
-/* harmony default export */ __webpack_exports__["default"] = (map);
-
-/***/ }),
-
 /***/ "./src/js/modules/popup.js":
 /*!*********************************!*\
   !*** ./src/js/modules/popup.js ***!
@@ -230,8 +217,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_burger__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/burger */ "./src/js/modules/burger.js");
 /* harmony import */ var _modules_accordion__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/accordion */ "./src/js/modules/accordion.js");
 /* harmony import */ var _modules_popup__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/popup */ "./src/js/modules/popup.js");
-/* harmony import */ var _modules_map__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/map */ "./src/js/modules/map.js");
-
 
 
 
@@ -243,7 +228,6 @@ window.addEventListener('DOMContentLoaded', () => {
   (0,_modules_popup__WEBPACK_IMPORTED_MODULE_2__["default"])('.header__button', '.popup__consultation');
   (0,_modules_popup__WEBPACK_IMPORTED_MODULE_2__["default"])('.menu-block__descr', '.popup__consultation');
   (0,_modules_popup__WEBPACK_IMPORTED_MODULE_2__["default"])('.slider__slide', '.popup__img');
-  (0,_modules_map__WEBPACK_IMPORTED_MODULE_3__["default"])();
 });
 }();
 /******/ })()

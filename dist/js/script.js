@@ -31,22 +31,51 @@ const accordion = () => {
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _modules_calcScroll__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../modules/calcScroll */ "./src/js/modules/calcScroll.js");
+
+
 function burger() {
   const burgerBtn = document.querySelector('.menu__burger'),
         burgerMenu = document.querySelector('.menu__body'),
         menuLink = document.querySelectorAll('.menu__link'),
-        body = document.querySelector('body');
+        body = document.querySelector('body'),
+        phone = document.querySelector('.menu-block__tel'),
+        linkDescr = document.querySelector('.menu-block__descr'),
+        scroll = (0,_modules_calcScroll__WEBPACK_IMPORTED_MODULE_0__.calcScroll)();
+
+  function openMenu() {
+    burgerBtn.classList.add('active');
+    burgerMenu.classList.add('active');
+    body.classList.add('lock');
+    document.body.style.overflow = "hidden";
+    document.body.style.marginRight = `${scroll}px`;
+  }
+
+  function closeMenu() {
+    burgerBtn.classList.remove('active');
+    burgerMenu.classList.remove('active');
+    body.classList.remove('lock');
+    document.body.style.overflow = "";
+    document.body.style.marginRight = `0px`;
+  }
+
   burgerBtn.addEventListener('click', () => {
-    burgerBtn.classList.toggle('active');
-    burgerMenu.classList.toggle('active');
-    body.classList.toggle('lock');
+    if (burgerBtn.classList.contains('active')) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
   });
   menuLink.forEach(e => {
     e.addEventListener('click', () => {
-      burgerBtn.classList.remove('active');
-      burgerMenu.classList.remove('active');
-      body.classList.remove('lock');
+      closeMenu();
     });
+  });
+  phone.addEventListener('click', () => {
+    closeMenu();
+  });
+  linkDescr.addEventListener('click', () => {
+    closeMenu();
   });
 }
 
@@ -54,42 +83,84 @@ function burger() {
 
 /***/ }),
 
-/***/ "./src/js/services/services.js":
-/*!*************************************!*\
-  !*** ./src/js/services/services.js ***!
-  \*************************************/
+/***/ "./src/js/modules/calcScroll.js":
+/*!**************************************!*\
+  !*** ./src/js/modules/calcScroll.js ***!
+  \**************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "getResource": function() { return /* binding */ getResource; },
-/* harmony export */   "postData": function() { return /* binding */ postData; }
+/* harmony export */   "calcScroll": function() { return /* binding */ calcScroll; }
 /* harmony export */ });
-
-
-const postData = async (url, data) => {
-  const res = await fetch(url, {
-    method: "POST",
-    headers: {
-      'Content-type': 'application/json'
-    },
-    body: data
-  });
-  return await res.json();
-};
-
-async function getResource(url) {
-  let res = await fetch(url);
-
-  if (!res.ok) {
-    throw new Error(`Could not fetch ${url}, status: ${res.status}`);
-  }
-
-  return await res.json();
+function calcScroll() {
+  let div = document.createElement('div');
+  div.style.width = '50px';
+  div.style.height = '50px';
+  div.style.overflowY = 'scroll';
+  div.style.visibility = 'hidden';
+  document.body.appendChild(div);
+  let scrollWidth = div.offsetWidth - div.clientWidth;
+  div.remove();
+  return scrollWidth;
 }
 
 
 
+/***/ }),
+
+/***/ "./src/js/modules/map.js":
+/*!*******************************!*\
+  !*** ./src/js/modules/map.js ***!
+  \*******************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+function map() {}
+
+/* harmony default export */ __webpack_exports__["default"] = (map);
+
+/***/ }),
+
+/***/ "./src/js/modules/popup.js":
+/*!*********************************!*\
+  !*** ./src/js/modules/popup.js ***!
+  \*********************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _modules_calcScroll__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../modules/calcScroll */ "./src/js/modules/calcScroll.js");
+
+
+function popup(triggerSelector, popupSelector) {
+  const trigger = document.querySelectorAll(triggerSelector),
+        popup = document.querySelector(popupSelector),
+        btnClose = document.querySelector('.popup__close'),
+        popupImage = document.querySelector('.popup__image'),
+        scroll = (0,_modules_calcScroll__WEBPACK_IMPORTED_MODULE_0__.calcScroll)();
+  trigger.forEach(i => {
+    i.addEventListener('click', () => {
+      popup.classList.add('active');
+      document.querySelector('body').classList.add('lock');
+      document.body.style.overflow = "hidden";
+      document.body.style.marginRight = `${scroll}px`;
+
+      if (i.classList.contains('slider__slide')) {
+        popupImage.src = i.childNodes[1].src;
+      }
+    });
+  });
+  document.addEventListener('click', e => {
+    if (e.target == btnClose || e.target == popup) {
+      popup.classList.remove('active');
+      document.querySelector('body').classList.remove('lock');
+      document.body.style.overflow = "";
+      document.body.style.marginRight = `0px`;
+    }
+  });
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (popup);
 
 /***/ })
 
@@ -158,7 +229,9 @@ var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_burger__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/burger */ "./src/js/modules/burger.js");
 /* harmony import */ var _modules_accordion__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/accordion */ "./src/js/modules/accordion.js");
-/* harmony import */ var _services_services__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./services/services */ "./src/js/services/services.js");
+/* harmony import */ var _modules_popup__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/popup */ "./src/js/modules/popup.js");
+/* harmony import */ var _modules_map__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/map */ "./src/js/modules/map.js");
+
 
 
 
@@ -167,6 +240,10 @@ window.addEventListener('DOMContentLoaded', () => {
 
   (0,_modules_burger__WEBPACK_IMPORTED_MODULE_0__["default"])();
   (0,_modules_accordion__WEBPACK_IMPORTED_MODULE_1__["default"])();
+  (0,_modules_popup__WEBPACK_IMPORTED_MODULE_2__["default"])('.header__button', '.popup__consultation');
+  (0,_modules_popup__WEBPACK_IMPORTED_MODULE_2__["default"])('.menu-block__descr', '.popup__consultation');
+  (0,_modules_popup__WEBPACK_IMPORTED_MODULE_2__["default"])('.slider__slide', '.popup__img');
+  (0,_modules_map__WEBPACK_IMPORTED_MODULE_3__["default"])();
 });
 }();
 /******/ })()

@@ -20,9 +20,13 @@
     justify-content: space-between;
     &__img {
         width: 40.92%;
+        overflow: hidden;
         
         img {
+            
             width: 100%;
+
+
         }
     }
 

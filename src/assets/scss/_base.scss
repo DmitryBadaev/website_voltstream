@@ -1,5 +1,6 @@
 body {
     background: linear-gradient(90deg, #83A4BD, #A5A2B3, #BA929B, #BD8689, #C46F6A, #C65857, #BF4145, #9C2E37, #7A262E, #421F23, #2D1C22);
+    position: relative;
     
 
 }
@@ -33,7 +34,9 @@ a {
 .lock {
     overflow: hidden;
 }
-
+.active {
+    display: block;
+}
 
 .title {
     font-weight: 600;

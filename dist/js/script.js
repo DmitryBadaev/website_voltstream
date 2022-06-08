@@ -2,54 +2,55 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./src/js/modules/tabs.js":
-/*!********************************!*\
-  !*** ./src/js/modules/tabs.js ***!
-  \********************************/
+/***/ "./src/js/modules/accordion.js":
+/*!*************************************!*\
+  !*** ./src/js/modules/accordion.js ***!
+  \*************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
-function tabs(tabsSelector, tabsContentSelector, tabsParentSelector, activeClass) {
-  "use strict";
-
-  const tabs = document.querySelectorAll(tabsSelector),
-        tabsContent = document.querySelectorAll(tabsContentSelector),
-        tabsParent = document.querySelector(tabsParentSelector);
-
-  function hideTabContent() {
-    tabsContent.forEach(item => {
-      item.classList.add('hide');
-      item.classList.remove('show', 'fade');
+const accordion = () => {
+  const triggers = document.querySelectorAll('.questions-block'),
+        contentAccordion = document.querySelectorAll('.questions-block__descr');
+  triggers.forEach((e, i) => {
+    e.addEventListener('click', () => {
+      e.classList.toggle('active');
+      contentAccordion[i].classList.toggle('active');
     });
-    tabs.forEach(item => {
-      item.classList.remove(activeClass);
+  });
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (accordion);
+
+/***/ }),
+
+/***/ "./src/js/modules/burger.js":
+/*!**********************************!*\
+  !*** ./src/js/modules/burger.js ***!
+  \**********************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+function burger() {
+  const burgerBtn = document.querySelector('.menu__burger'),
+        burgerMenu = document.querySelector('.menu__body'),
+        menuLink = document.querySelectorAll('.menu__link'),
+        body = document.querySelector('body');
+  burgerBtn.addEventListener('click', () => {
+    burgerBtn.classList.toggle('active');
+    burgerMenu.classList.toggle('active');
+    body.classList.toggle('lock');
+  });
+  menuLink.forEach(e => {
+    e.addEventListener('click', () => {
+      burgerBtn.classList.remove('active');
+      burgerMenu.classList.remove('active');
+      body.classList.remove('lock');
     });
-  }
-
-  function showTabContent() {
-    let i = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
-    tabsContent[i].classList.add('show', 'fade');
-    tabsContent[i].classList.remove('hide');
-    tabs[i].classList.add('tabheader__item_active');
-  }
-
-  hideTabContent();
-  showTabContent();
-  tabsParent.addEventListener('click', event => {
-    const target = event.target;
-
-    if (target && target.classList.contains(tabsSelector.slice(1))) {
-      tabs.forEach((item, i) => {
-        if (target == item) {
-          hideTabContent();
-          showTabContent(i);
-        }
-      });
-    }
   });
 }
 
-/* harmony default export */ __webpack_exports__["default"] = (tabs);
+/* harmony default export */ __webpack_exports__["default"] = (burger);
 
 /***/ }),
 
@@ -155,12 +156,17 @@ var __webpack_exports__ = {};
   !*** ./src/js/main.js ***!
   \************************/
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _modules_tabs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/tabs */ "./src/js/modules/tabs.js");
-/* harmony import */ var _services_services__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./services/services */ "./src/js/services/services.js");
+/* harmony import */ var _modules_burger__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/burger */ "./src/js/modules/burger.js");
+/* harmony import */ var _modules_accordion__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/accordion */ "./src/js/modules/accordion.js");
+/* harmony import */ var _services_services__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./services/services */ "./src/js/services/services.js");
+
 
 
 window.addEventListener('DOMContentLoaded', () => {
   "use strict";
+
+  (0,_modules_burger__WEBPACK_IMPORTED_MODULE_0__["default"])();
+  (0,_modules_accordion__WEBPACK_IMPORTED_MODULE_1__["default"])();
 });
 }();
 /******/ })()

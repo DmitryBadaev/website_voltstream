@@ -166,8 +166,7 @@
 }
 @media (max-width: 950px) {
     .menu {
-        &__logo {
-        }
+
         &__body {
             width: 83.15%;
         }
@@ -189,8 +188,7 @@
     }
     .header-block {
         margin-top: 68px;
-        &__item {
-        }
+
 
         &__img {
             width: 19.54px;
@@ -248,28 +246,18 @@
             font-size: 15px;
         }
 
-        &__burger {
-        }
     }
     .menu-block {
 
-            &__tel {
-                font-size: 16px;
+        &__tel {
+            font-size: 16px;
 
-            }
-
-            &__descr {
-            }
-    }
-    .title {
-
-        &__big {
         }
+
     }
+
     .header-block {
         margin-top: 68px;
-        &__item {
-        }
 
         &__img {
             width: 19.54px;
@@ -323,9 +311,7 @@
             }
         }
     }
-    .header-block {
 
-    }
 
     .menu {
         &__logo {
@@ -354,7 +340,8 @@
         }
 
         &__link {
-            font-size: 15px;
+            font-size: 20px;
+            text-transform: uppercase;
         }
 
         &__burger {
@@ -394,8 +381,6 @@
 
         }
 
-        &__descr {
-        }
 }
 
 }

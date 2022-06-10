@@ -1,6 +1,4 @@
-// Переделать картинки
-// Оптимизировать карту при помощи Js
-
+@import '../../../node_modules/swiper/swiper.min.css';
 
 @import '../css/fonts.css';
 @import '../css/normalize.css';
@@ -13,10 +11,8 @@
 @import 'blocks/specialization';
 @import 'blocks/works';
 @import 'blocks/slider';
-@import 'blocks/reviews';
 @import 'blocks/gallery';
 @import 'blocks/consultation';
-@import 'blocks/certificate';
 @import 'blocks/questions';
 @import 'blocks/footer';
 @import 'blocks/popup';
